@@ -15,13 +15,20 @@ public class ManualTestBean {
     MovieControllerImpl movieController;
 
     ManualTestBean(MovieControllerImpl movieController){
+
         this.movieController = movieController;
+
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void callController(){
+
         log.info(this.movieController.getName());
+        log.info(this.movieController .getServiceName());
+
     }
+
+
 
 
 
