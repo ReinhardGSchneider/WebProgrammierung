@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MovieServiceImpl implements MovieService {
 
-    public static String getName(String name){
+    public String getName(){
         return "MovieServiceImpl";
     }
 

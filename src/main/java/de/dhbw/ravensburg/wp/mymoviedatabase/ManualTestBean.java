@@ -14,6 +14,7 @@ public class ManualTestBean {
 
     MovieControllerImpl movieController;
 
+
     ManualTestBean(MovieControllerImpl movieController){
 
         this.movieController = movieController;
@@ -24,7 +25,8 @@ public class ManualTestBean {
     public void callController(){
 
         log.info(this.movieController.getName());
-        log.info(this.movieController .getServiceName());
+        log.info(this.movieController.getServiceName());
+        log.info(this.movieController.getArtistName());
 
     }
 
