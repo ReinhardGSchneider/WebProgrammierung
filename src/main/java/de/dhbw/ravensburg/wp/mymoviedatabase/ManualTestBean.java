@@ -5,6 +5,7 @@ import de.dhbw.ravensburg.wp.mymoviedatabase.repository.MovieRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -84,6 +85,17 @@ public class ManualTestBean {
         //Filme speichern
         this.movieRepository.saveAll(Arrays.asList(movie_1,movie_2,movie_3,movie_4,movie_5,movie_6));
 
+        /*this.movieRepository.findByTitleContaining("Aufstieg").
+                forEach(movie -> {"Star Wars: Rise of the Skywalker";
+                this.movieRepository.save(movie);
+                });*/
+
+
+
+
+        movie_5.setTitle("Star Wars: Rise of the Skywalker");
+        this.movieRepository.save(movie_5);
+
         //Beispielabfragen
         log.info("----- Test Query 1: IMDB Rating > 7 -----");
         this.movieRepository.findByImdbRatingGreaterThan(7).
@@ -91,6 +103,11 @@ public class ManualTestBean {
         log.info("----- Test Query 2: Title contains 'Star' -----");
         this.movieRepository.findByTitleContaining("Star").
                 forEach(movie->log.info(movie.getTitle()));
+
+        log.info("----- Test Query 3: Premier Date > '2015' -----");
+        this.movieRepository.findByPremiereDateGreaterThan(LocalDate.of(2015,1,1)).
+                forEach(movie->log.info(movie.getTitle()));
+
     }
 
 
