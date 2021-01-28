@@ -20,10 +20,11 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findAllMoviesBelongingToSeries(
             @Param("param1") String series);
 
-    @Query("SELECT m FROM Movie m WHERE m.title like %:param1% %:param2%)
-    List<Movie> findAllMoviesDurationShorterThanAndIMDBRatingGreaterThan(
-            @Param("param1") String series);
-            @Param("param2") double duration);
-
+    @Query("SELECT m FROM Movie m WHERE m.duration < 2.5 AND m.imdbRating > 7.0")
+    List<Movie> findAllMoviesDurationShorterThanAndIMDBRatingGreaterThan();
+/*(
+            @Param("param1") String series,
+            @Param("param2") double duration );
+*/
 }
 

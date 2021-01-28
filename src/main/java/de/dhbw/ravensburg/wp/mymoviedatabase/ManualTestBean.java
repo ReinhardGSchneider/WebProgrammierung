@@ -108,6 +108,9 @@ public class ManualTestBean {
         this.movieRepository.findByPremiereDateGreaterThan(LocalDate.of(2015,1,1)).
                 forEach(movie->log.info(movie.getTitle()));
 
+        log.info("----- Test Query 3: Premier Date > '2015' -----");
+        this.movieRepository.findAllMoviesDurationShorterThanAndIMDBRatingGreaterThan().
+            forEach(movie -> log.info(movie.getTitle()));
     }
 
 
