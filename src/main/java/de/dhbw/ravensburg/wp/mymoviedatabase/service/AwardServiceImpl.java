@@ -4,10 +4,12 @@ import de.dhbw.ravensburg.wp.mymoviedatabase.model.Award;
 import de.dhbw.ravensburg.wp.mymoviedatabase.repository.AwardRepository;
 import de.dhbw.ravensburg.wp.mymoviedatabase.repository.MovieRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Service
+
 public class AwardServiceImpl implements AwardService {
 
     private AwardRepository awardRepository;
@@ -18,6 +20,7 @@ public class AwardServiceImpl implements AwardService {
 
     @Override
     public Award addAward(Award award){
+
         return this.awardRepository.save(award);
     }
     @Override
@@ -29,6 +32,7 @@ public class AwardServiceImpl implements AwardService {
         return this.awardRepository.findAll();
     }
     @Override
+    @PutMapping
     public Award updateAward(Award award){
         return this.awardRepository.save(award);
     }
